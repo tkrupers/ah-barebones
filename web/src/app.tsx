@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Title } from "./components/title/title";
-import * as service from "./service";
-import "./app.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-const App: React.FC = () => {
-  const [title, setTitle] = useState("");
+import Search from "@pages/search";
 
-  useEffect(() => {
-    service.fetchTitle().then((title) => setTitle(title));
-  }, []);
-
-  return (
-    <div className="app">
-      <Title title={title} />
-    </div>
-  );
-};
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Search />} />
+  </Routes>
+);
 
 export default App;

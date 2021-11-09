@@ -1,20 +1,20 @@
 import React from "react";
 import { render, screen, act } from "@testing-library/react";
-import App from "./app";
+import Search from "./search";
 
 const promise = Promise.resolve();
 
-jest.mock("./service", () => ({
+jest.mock("../service", () => ({
   fetchTitle: () => Promise.resolve("hallo"),
 }));
 
 describe("App component", () => {
   it("should be defined", () => {
-    expect(App).toBeDefined();
+    expect(Search).toBeDefined();
   });
 
   it("should display a title", async () => {
-    render(<App />);
+    render(<Search />);
 
     await act(() => promise);
 

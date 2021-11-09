@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const DotEnv = require("dotenv-webpack");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -25,6 +26,7 @@ module.exports = {
       os: false,
       path: false,
     },
+    plugins: [new TsconfigPathsPlugin()],
   },
   output: {
     filename: "bundle.js",
@@ -38,8 +40,5 @@ module.exports = {
     },
     hot: true,
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new DotEnv(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new DotEnv()],
 };
